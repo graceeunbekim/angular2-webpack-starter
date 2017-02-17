@@ -1,6 +1,7 @@
 /* this file will be extracted to main dist folder and is imported in index.html */
 /* This file is for setting global styles  */
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../node_modules/font-awesome/css/font-awesome.css';
 @import 'variables';
 
 html, body {
@@ -23,10 +24,29 @@ input, button {
     letter-spacing: normal;
 }
 
+.g-h1 {
+    @extend .g-text-common;
+
+    font-size: 2.25rem;
+    line-height: 3rem;
+    color: #556670;
+}
+
+.g-h2 {
+    @extend .g-text-common;
+
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+
+    color: #556670;
+}
+
 .g-h3 {
     @extend .g-text-common;
 
     font-size: 1.125rem;
+    line-height: 1.8rem;
+
     color: #556670;
 }
 
@@ -42,4 +62,33 @@ input, button {
 
     font-size: 0.875rem;
     color: #556670;
+}
+
+.g-icon {
+    font-size: 1rem;
+    color: #656565;
+}
+
+.g-link {
+    font-size: 0.6875rem;
+    letter-spacing: 1px;
+
+    color: #656565;
+}
+
+.g-link:hover {
+    color: #ccc;
+}
+
+// .g-link:visited {
+//     color: #656565;
+// }
+
+/* commont gracefully buttons style */
+.g-button-primary {
+    height: 45px;
+
+    border-radius: 4px;
+    background-color: #fff;
+    border: solid 1px #eae7e7;
 }
