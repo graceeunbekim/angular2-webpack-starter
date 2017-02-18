@@ -17,8 +17,8 @@ export class HomeComponent implements OnInit {
   public stickyConnectWithMeWidth: number;
   public stickyConnectWithMeBar: boolean;
 
-  public @ViewChild('stickyTimelineContent') stickyTimelineContent: ElementRef;
-  public @ViewChild('stickyConnectWithMeAnchor') stickyConnectWithMe: ElementRef;
+  @ViewChild('stickyTimelineContent') public stickyTimelineContent: ElementRef;
+  @ViewChild('stickyConnectWithMeAnchor') public stickyConnectWithMe: ElementRef;
 
   constructor(public title: Title) {
 
@@ -36,24 +36,25 @@ export class HomeComponent implements OnInit {
   }
 
   @HostListener('window:scroll', ['$event'])
-  onWindowScroll(event: Event) {
+  public onWindowScroll(event: Event) {
 
     this.checkForStickyBars();
 
   }
 
   @HostListener('window:resize', ['$event'])
-  onWindowResize(event: Event) {
+  public onWindowResize(event: Event) {
 
      this.checkForStickyBars();
 
   }
 
-  checkForStickyBars() {
+  public checkForStickyBars() {
 
-    let stickyConnectWidthMeRect: ClientRect = (<HTMLInputElement>this.stickyConnectWithMe.nativeElement).getBoundingClientRect();
+    let stickyConnectWithMeRect: ClientRect;
+    stickyConnectWithMeRect = ( <HTMLInputElement> this.stickyConnectWithMe.nativeElement ).getBoundingClientRect();
 
-    this.stickyConnectWithMeBar = stickyConnectWidthMeRect.top < 470 ? true : false;
+    this.stickyConnectWithMeBar = stickyConnectWithMeRect.top < 470 ? true : false;
 
     this.stickyConnectWithMeWidth = this.stickyConnectWithMe.nativeElement.clientWidth;
 

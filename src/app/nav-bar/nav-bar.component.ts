@@ -11,7 +11,7 @@ import { Component, HostListener, ElementRef, ViewChild } from '@angular/core';
 
 export class NavbarComponent {
 
-    public @ViewChild('collapsingNavbar') collapsingNavbar: ElementRef;
+    @ViewChild('collapsingNavbar') public collapsingNavbar: ElementRef;
 
     public isCollapsed(): boolean {
 
